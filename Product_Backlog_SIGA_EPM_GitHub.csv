@@ -1,0 +1,440 @@
+﻿Title,Body,Labels,Milestone,Story Points,Horas
+[HU-001] Creación y configuración del año lectivo y periodos académicos,"**Iniciativa:** INI-01 | **Épica:** EPI-01
+
+### Historia de Usuario
+- **Como:** Administrador del sistema
+- **Quiero:** Configurar el año lectivo vigente y sus periodos académicos
+- **Para:** Delimitar las fechas oficiales de registro de notas y asistencia en la institución.
+
+### Criterios de Aceptación
+- [ ] Dado que tengo permisos de Administrador, cuando defino fechas de inicio, fin y 4 periodos, entonces el sistema guarda la estructura.
+- [ ] Dado que un periodo ya finalizó, cuando intento modificar sus fechas sin rol directivo especial, entonces el sistema bloquea la edición.
+- [ ] Dado que se crea un nuevo año lectivo, cuando se activa, entonces desactiva el anterior manteniendo su histórico.
+
+### Tareas y Subtareas
+- [ ] **TA-001 (Backend - 8h):** Construir API RESTful de periodos
+  - [ ] SUB-001: Modelo relacional AñoLectivo y Periodo (2h)
+  - [ ] SUB-002: Endpoints CRUD con validaciones de fechas (4h)
+  - [ ] SUB-003: Pruebas unitarias (2h)
+- [ ] **TA-002 (Frontend - 6h):** Interfaz gráfica de configuración temporal
+  - [ ] SUB-004: Formulario responsivo de calendarios (3h)
+  - [ ] SUB-005: Conexión con endpoints y alertas (3h)
+- [ ] **TA-003 (QA - 4h):** Validar criterios de aceptación
+  - [ ] SUB-006: Casos de prueba funcionales (2h)
+  - [ ] SUB-007: Pruebas de regresión y bloqueo (2h)","EPI-01,Prioridad-Alta,Sprint-1",Sprint 1,5,18
+"[HU-002] Gestión de grados, cursos y asignaturas del plantel","**Iniciativa:** INI-01 | **Épica:** EPI-01
+
+### Historia de Usuario
+- **Como:** Coordinador Académico
+- **Quiero:** Registrar y asociar los grados escolares, cursos y asignaturas del plan de estudios
+- **Para:** Organizar correctamente la oferta académica de la institución.
+
+### Criterios de Aceptación
+- [ ] Dado que agrego un grado y curso con director de grupo, entonces se registra en BD.
+- [ ] Dado que consulto el pensum del grado, entonces visualizo las materias asociadas.
+- [ ] Dado que un curso tiene matriculados, cuando intento eliminarlo, entonces el sistema rechaza la acción.
+
+### Tareas y Subtareas
+- [ ] **TA-004 (Backend - 8h):** Servicios de estructura escolar (SUB-008 a SUB-010)
+- [ ] **TA-005 (Frontend - 7h):** Vistas de administración de cursos (SUB-011 a SUB-012)
+- [ ] **TA-006 (QA - 5h):** Aseguramiento de calidad (SUB-013 a SUB-014)","EPI-01,Prioridad-Media,Sprint-1",Sprint 1,3,20
+"[HU-003] Administración de usuarios, perfiles y asignación de roles","**Iniciativa:** INI-01 | **Épica:** EPI-01
+
+### Historia de Usuario
+- **Como:** Administrador del sistema
+- **Quiero:** Crear usuarios y asignarles roles específicos (Docente, Coordinador, Secretaría, Acudiente)
+- **Para:** Garantizar accesos seguros según perfil.
+
+### Criterios de Aceptación
+- [ ] Dado que registro un docente y asigno rol, entonces recibe credenciales temporales.
+- [ ] Dado que un usuario entra a URL sin permiso, entonces se deniega el acceso.
+- [ ] Dado que se inactiva una cuenta, entonces se revoca su sesión inmediatamente.
+
+### Tareas y Subtareas
+- [ ] **TA-007 (Backend - 10h):** Autenticación JWT y RBAC (SUB-015 a SUB-017)
+- [ ] **TA-008 (Frontend - 8h):** Panel de control de usuarios (SUB-018 a SUB-019)
+- [ ] **TA-009 (QA - 6h):** Pruebas de seguridad y privilegios (SUB-020 a SUB-021)","EPI-01,Prioridad-Alta,Sprint-1",Sprint 1,8,24
+[HU-004] Registro de matrícula y asignación de estudiantes a cursos,"**Iniciativa:** INI-01 | **Épica:** EPI-02
+
+### Historia de Usuario
+- **Como:** Personal de Secretaría
+- **Quiero:** Registrar datos del estudiante y matricularlo en su curso
+- **Para:** Generar su ficha digital oficial.
+
+### Criterios de Aceptación
+- [ ] Habilita formulario si el documento no existe.
+- [ ] Bloquea matrícula si el curso alcanzó el cupo máximo.
+- [ ] Genera comprobante de matrícula en PDF.
+
+### Tareas y Subtareas
+- [ ] **TA-010 (Backend - 9h):** Servicios de matrículas y cupos (SUB-022 a SUB-024)
+- [ ] **TA-011 (Frontend - 7h):** Formulario multipasos y PDF (SUB-025 a SUB-026)
+- [ ] **TA-012 (QA - 4h):** Pruebas de cupos y duplicidad (SUB-027 a SUB-028)","EPI-02,Prioridad-Alta,Sprint-1",Sprint 1,5,20
+[HU-005] Consulta y actualización del expediente académico del estudiante,"**Iniciativa:** INI-01 | **Épica:** EPI-02
+
+### Historia de Usuario
+- **Como:** Coordinador / Docente
+- **Quiero:** Consultar el expediente digital e historial de notas
+- **Para:** Realizar seguimiento integral del alumno.
+
+### Criterios de Aceptación
+- [ ] Visualiza historial consolidado de años anteriores.
+- [ ] Registra auditoría al editar contacto de acudiente.
+- [ ] Bloquea edición de notas históricas sin privilegios.
+
+### Tareas y Subtareas
+- [ ] **TA-013 (Backend - 8h):** Endpoints historial y logs (SUB-029 a SUB-031)
+- [ ] **TA-014 (Frontend - 7h):** Vista perfil del estudiante (SUB-032 a SUB-033)
+- [ ] **TA-015 (QA - 5h):** Pruebas de acceso por rol (SUB-034 a SUB-035)","EPI-02,Prioridad-Media,Sprint-2",Sprint 2,3,20
+"[HU-006] Gestión de traslados, retiros y estados de matrícula","**Iniciativa:** INI-01 | **Épica:** EPI-02
+
+### Historia de Usuario
+- **Como:** Administrador / Secretaría
+- **Quiero:** Actualizar estado de matrícula (Activo, Retirado, Egresado)
+- **Para:** Mantener la base de datos actualizada.
+
+### Criterios de Aceptación
+- [ ] Al marcar Retirado libera cupo automáticamente.
+- [ ] Al cerrar año actualiza grado final a Egresado.
+- [ ] Permite filtrar estadísticas de retiros.
+
+### Tareas y Subtareas
+- [ ] **TA-016 (Backend - 8h):** Transición de estados (SUB-036 a SUB-038)
+- [ ] **TA-017 (Frontend - 6h):** Modal de cambio de estado (SUB-039 a SUB-040)
+- [ ] **TA-018 (QA - 5h):** Pruebas de liberación de cupos (SUB-041 a SUB-042)","EPI-02,Prioridad-Media,Sprint-2",Sprint 2,5,19
+[HU-007] Registro de asistencia diaria por sesión de clase,"**Iniciativa:** INI-01 | **Épica:** EPI-03
+
+### Historia de Usuario
+- **Como:** Docente
+- **Quiero:** Registrar asistencia (Presente, Ausente, Tarde) desde la lista de clase
+- **Para:** Dejar constancia oficial en menos de dos minutos.
+
+### Criterios de Aceptación
+- [ ] Muestra lista de estudiantes matriculados.
+- [ ] Guarda fecha, hora y usuario docente.
+- [ ] Conserva datos en LocalStorage si se cae el Internet.
+
+### Tareas y Subtareas
+- [ ] **TA-019 (Backend - 9h):** API de asistencia y validación 24h (SUB-043 a SUB-045)
+- [ ] **TA-020 (Frontend - 8h):** Lista responsiva con modo offline (SUB-046 a SUB-047)
+- [ ] **TA-021 (QA - 5h):** Pruebas sin conexión y móviles (SUB-048 a SUB-049)","EPI-03,Prioridad-Alta,Sprint-2",Sprint 2,5,22
+[HU-008] Gestión y aprobación de excusas e incapacidades médicas,"**Iniciativa:** INI-01 | **Épica:** EPI-03
+
+### Historia de Usuario
+- **Como:** Coordinador Académico
+- **Quiero:** Aprobar o rechazar excusas médicas enviadas por acudientes
+- **Para:** Justificar inasistencias válidas.
+
+### Criterios de Aceptación
+- [ ] Permite aprobar/rechazar adjunto con comentario.
+- [ ] Si aprueba, cambia estado a Excusa Justificada.
+- [ ] Si rechaza, mantiene falta injustificada.
+
+### Tareas y Subtareas
+- [ ] **TA-022 (Backend - 8h):** Gestión de adjuntos y estados (SUB-050 a SUB-052)
+- [ ] **TA-023 (Frontend - 7h):** Bandeja de excusas (SUB-053 a SUB-054)
+- [ ] **TA-024 (QA - 5h):** Validación de estados y roles (SUB-055 a SUB-056)","EPI-03,Prioridad-Media,Sprint-2",Sprint 2,3,20
+[HU-009] Consulta de historial y porcentaje de asistencia por estudiante,"**Iniciativa:** INI-01 | **Épica:** EPI-03
+
+### Historia de Usuario
+- **Como:** Docente / Coordinador / Acudiente
+- **Quiero:** Consultar porcentaje acumulado de asistencia
+- **Para:** Detectar patrones de ausentismo.
+
+### Criterios de Aceptación
+- [ ] Muestra porcentaje global y por materia.
+- [ ] Genera alerta visual si supera el 15% de faltas.
+- [ ] Acudiente ve detalle de días ausentes en móvil.
+
+### Tareas y Subtareas
+- [ ] **TA-025 (Backend - 8h):** Cálculo estadístico y disparador alertas (SUB-057 a SUB-059)
+- [ ] **TA-026 (Frontend - 7h):** Indicadores gráficos de asistencia (SUB-060 a SUB-061)
+- [ ] **TA-027 (QA - 6h):** Pruebas de umbrales e integración INI-01 (SUB-062 a SUB-063)","EPI-03,Prioridad-Media,Sprint-2",Sprint 2,5,21
+[HU-010] Configuración de escalas de valoración y porcentajes por periodo,"**Iniciativa:** INI-02 | **Épica:** EPI-04
+
+### Historia de Usuario
+- **Como:** Administrador / Coordinador
+- **Quiero:** Parametrizar escalas y porcentajes de evaluación por periodo
+- **Para:** Estandarizar el modelo evaluativo.
+
+### Criterios de Aceptación
+- [ ] Valida que la sumatoria de porcentajes sea 100%.
+- [ ] Bloquea guardado si no suma 100%.
+- [ ] Restringe edición en periodos cerrados.
+
+### Tareas y Subtareas
+- [ ] **TA-028 (Backend - 8h):** Servicios escalas y validación 100% (SUB-064 a SUB-066)
+- [ ] **TA-029 (Frontend - 7h):** Panel de control de porcentajes (SUB-067 a SUB-068)
+- [ ] **TA-030 (QA - 5h):** Pruebas de restricciones (SUB-069 a SUB-070)","EPI-04,Prioridad-Alta,Sprint-3",Sprint 3,5,20
+[HU-011] Registro y edición de calificaciones en planillas digitales,"**Iniciativa:** INI-02 | **Épica:** EPI-04
+
+### Historia de Usuario
+- **Como:** Docente
+- **Quiero:** Registrar y editar notas parciales en planilla digital
+- **Para:** Reemplazar planillas de papel.
+
+### Criterios de Aceptación
+- [ ] Muestra estudiantes y columnas de actividades.
+- [ ] Valida que la nota esté dentro de la escala (1.0 a 5.0).
+- [ ] Actualiza promedio parcial en tiempo real.
+
+### Tareas y Subtareas
+- [ ] **TA-031 (Backend - 10h):** API manipulación planillas (SUB-071 a SUB-073)
+- [ ] **TA-032 (Frontend - 10h):** Tabla matriz editable con autoguardado (SUB-074 a SUB-075)
+- [ ] **TA-033 (QA - 6h):** Pruebas de digitación masiva (SUB-076 a SUB-077)","EPI-04,Prioridad-Alta,Sprint-3",Sprint 3,8,26
+[HU-012] Habilitación de notas de recuperación y nivelación,"**Iniciativa:** INI-02 | **Épica:** EPI-04
+
+### Historia de Usuario
+- **Como:** Docente / Coordinador
+- **Quiero:** Registrar notas de recuperación para alumnos reprobados
+- **Para:** Gestionar superación de debilidades.
+
+### Criterios de Aceptación
+- [ ] Actualiza nota según política institucional.
+- [ ] Bloquea ingreso fuera de fecha límite.
+- [ ] Diferencia nota original vs nivelada.
+
+### Tareas y Subtareas
+- [ ] **TA-034 (Backend - 8h):** Lógica de nivelaciones y fechas (SUB-078 a SUB-080)
+- [ ] **TA-035 (Frontend - 7h):** Sección de nivelaciones docente (SUB-081 a SUB-082)
+- [ ] **TA-036 (QA - 5h):** Validación de plazos (SUB-083 a SUB-084)","EPI-04,Prioridad-Media,Sprint-3",Sprint 3,5,20
+[HU-013] Cálculo automático de notas definitivas por periodo,"**Iniciativa:** INI-02 | **Épica:** EPI-05
+
+### Historia de Usuario
+- **Como:** Docente / Sistema
+- **Quiero:** Calcular automáticamente la definitiva de la asignatura
+- **Para:** Evitar errores aritméticos manuales.
+
+### Criterios de Aceptación
+- [ ] Aplica fórmula ponderada con decimales.
+- [ ] Advierte si faltan notas parciales.
+- [ ] Marca en rojo definitivas reprobatorias.
+
+### Tareas y Subtareas
+- [ ] **TA-037 (Backend - 8h):** Motor cálculo ponderado (SUB-085 a SUB-087)
+- [ ] **TA-038 (Frontend - 7h):** Botón cálculo masivo (SUB-088 a SUB-089)
+- [ ] **TA-039 (QA - 5h):** Pruebas de redondeo (SUB-090 a SUB-091)","EPI-05,Prioridad-Alta,Sprint-3",Sprint 3,5,20
+[HU-014] Generación y consolidación de puestos y rankings por curso,"**Iniciativa:** INI-02 | **Épica:** EPI-05
+
+### Historia de Usuario
+- **Como:** Coordinador Académico
+- **Quiero:** Ordenar estudiantes según promedio ponderado general
+- **Para:** Identificar mejores promedios.
+
+### Criterios de Aceptación
+- [ ] Ordena de mayor a menor promedio.
+- [ ] Maneja empates asignando misma posición.
+- [ ] Recalcula al actualizar notas.
+
+### Tareas y Subtareas
+- [ ] **TA-040 (Backend - 8h):** Consultas ordenamiento y empates (SUB-092 a SUB-094)
+- [ ] **TA-041 (Frontend - 6h):** Tabla cuadro de honor (SUB-095 a SUB-096)
+- [ ] **TA-042 (QA - 5h):** Pruebas con promedios idénticos (SUB-097 a SUB-098)","EPI-05,Prioridad-Media,Sprint-4",Sprint 4,3,19
+[HU-015] Gestión de actas y comisiones de evaluación y promoción,"**Iniciativa:** INI-02 | **Épica:** EPI-05
+
+### Historia de Usuario
+- **Como:** Comité de Evaluación / Coordinador
+- **Quiero:** Generar actas de promoción y reprobación anual
+- **Para:** Cumplir requisitos legales.
+
+### Criterios de Aceptación
+- [ ] Clasifica promovidos y reprobados según áreas perdidas.
+- [ ] Permite promoción excepcional.
+- [ ] Compila acta oficial en PDF.
+
+### Tareas y Subtareas
+- [ ] **TA-043 (Backend - 10h):** Lógica promoción y actas PDF (SUB-099 a SUB-0101)
+- [ ] **TA-044 (Frontend - 8h):** Panel deliberación comité (SUB-0102 a SUB-0103)
+- [ ] **TA-045 (QA - 6h):** Validación reglas promoción (SUB-0104 a SUB-0105)","EPI-05,Prioridad-Alta,Sprint-4",Sprint 4,8,24
+[HU-016] Generación y descarga individual o masiva de boletines en PDF,"**Iniciativa:** INI-02 | **Épica:** EPI-06
+
+### Historia de Usuario
+- **Como:** Secretaría / Coordinador
+- **Quiero:** Descargar boletines oficiales individuales o por curso completo en PDF
+- **Para:** Entregar reportes al cierre de periodo.
+
+### Criterios de Aceptación
+- [ ] Compila archivo masivo por curso.
+- [ ] Incluye escudo, notas, faltas y firma.
+- [ ] Advierte restricciones administrativas.
+
+### Tareas y Subtareas
+- [ ] **TA-046 (Backend - 10h):** Motor renderizado PDF masivo (SUB-0106 a SUB-0108)
+- [ ] **TA-047 (Frontend - 8h):** Panel descarga masiva con barra progreso (SUB-0109 a SUB-0110)
+- [ ] **TA-048 (QA - 6h):** Pruebas de estrés 40 boletines (SUB-0111 a SUB-0112)","EPI-06,Prioridad-Alta,Sprint-4",Sprint 4,8,24
+[HU-017] Emisión de constancias de estudio y certificados de notas,"**Iniciativa:** INI-02 | **Épica:** EPI-06
+
+### Historia de Usuario
+- **Como:** Secretaría / Acudiente
+- **Quiero:** Emitir constancias de estudio y certificados históricos
+- **Para:** Atender solicitudes ágilmente.
+
+### Criterios de Aceptación
+- [ ] Genera constancia con código QR/Hash único.
+- [ ] Compone certificado de años anteriores.
+- [ ] Pasarela pública valida autenticidad del QR.
+
+### Tareas y Subtareas
+- [ ] **TA-049 (Backend - 8h):** Generación Hash/QR y endpoint público (SUB-0113 a SUB-0115)
+- [ ] **TA-050 (Frontend - 7h):** Plantilla certificado y vista validación (SUB-0116 a SUB-0117)
+- [ ] **TA-051 (QA - 5h):** Escaneo QR y rechazo códigos falsos (SUB-0118 a SUB-0119)","EPI-06,Prioridad-Media,Sprint-4",Sprint 4,5,20
+[HU-018] Firma digital y validación de autenticidad en documentos académicos,"**Iniciativa:** INI-02 | **Épica:** EPI-06
+
+### Historia de Usuario
+- **Como:** Administrador / Rector
+- **Quiero:** Incorporar firmas digitales y sellos de validación
+- **Para:** Prevenir falsificaciones.
+
+### Criterios de Aceptación
+- [ ] Inserta firma automáticamente en PDFs.
+- [ ] Detecta alteraciones mediante Hash.
+- [ ] Actualiza firmas ante cambio de directivos.
+
+### Tareas y Subtareas
+- [ ] **TA-052 (Backend - 8h):** Almacenamiento firma y sellado Hash (SUB-0120 a SUB-0122)
+- [ ] **TA-053 (Frontend - 6h):** Panel carga de firma rector (SUB-0123 a SUB-0124)
+- [ ] **TA-054 (QA - 6h):** Pruebas alteración PDF e integración INI-02 (SUB-0125 a SUB-0126)","EPI-06,Prioridad-Media,Sprint-4",Sprint 4,5,20
+[HU-019] Consulta móvil de notas y boletines para acudientes,"**Iniciativa:** INI-03 | **Épica:** EPI-07
+
+### Historia de Usuario
+- **Como:** Acudiente / Padre de familia
+- **Quiero:** Consultar calificaciones parciales y descargar boletines desde mi celular
+- **Para:** Hacer seguimiento continuo al rendimiento de mi hijo.
+
+### Criterios de Aceptación
+- [ ] Vista responsiva optimizada para smartphones.
+- [ ] Permite cambiar entre varios hijos asociados.
+- [ ] Descarga boletín PDF directamente al teléfono.
+
+### Tareas y Subtareas
+- [ ] **TA-055 (Backend - 8h):** Endpoints ligeros para perfil acudiente (SUB-0127 a SUB-0129)
+- [ ] **TA-056 (Frontend - 8h):** Interfaz móvil Mobile-First para padres (SUB-0130 a SUB-0132)
+- [ ] **TA-057 (QA - 5h):** Pruebas responsivas en distintos celulares (SUB-0133 a SUB-0134)","EPI-07,Prioridad-Alta,Sprint-5",Sprint 5,5,21
+[HU-020] Radicación digital de excusas médicas desde el portal móvil,"**Iniciativa:** INI-03 | **Épica:** EPI-07
+
+### Historia de Usuario
+- **Como:** Acudiente
+- **Quiero:** Subir foto o PDF de excusa médica desde mi celular
+- **Para:** Justificar inasistencias sin ir presencialmente al colegio.
+
+### Criterios de Aceptación
+- [ ] Permite tomar foto con cámara o subir archivo.
+- [ ] Muestra estado de revisión (Pendiente, Aprobada, Rechazada).
+- [ ] Notifica respuesta de coordinación.
+
+### Tareas y Subtareas
+- [ ] **TA-058 (Backend - 7h):** Recepción compresión imágenes y estados (SUB-0135 a SUB-0137)
+- [ ] **TA-059 (Frontend - 7h):** Formulario móvil de carga de excusas (SUB-0138 a SUB-0140)
+- [ ] **TA-060 (QA - 4h):** Pruebas subida desde cámara móvil (SUB-0141 a SUB-0142)","EPI-07,Prioridad-Media,Sprint-5",Sprint 5,3,18
+[HU-021] Visualización de observador del alumno y citaciones,"**Iniciativa:** INI-03 | **Épica:** EPI-07
+
+### Historia de Usuario
+- **Como:** Acudiente
+- **Quiero:** Leer observaciones disciplinarias y confirmar citaciones
+- **Para:** Estar enterado de la convivencia escolar.
+
+### Criterios de Aceptación
+- [ ] Lista cronológica de anotaciones docentes.
+- [ ] Botón de 'Enterado / Firmar asistencia a citación'.
+- [ ] Guarda fecha y hora de confirmación del padre.
+
+### Tareas y Subtareas
+- [ ] **TA-061 (Backend - 7h):** API observador y confirmación lectura (SUB-0143 a SUB-0145)
+- [ ] **TA-062 (Frontend - 6h):** Línea de tiempo de observaciones (SUB-0146 a SUB-0148)
+- [ ] **TA-063 (QA - 4h):** Validación flujo confirmación acudiente (SUB-0149 a SUB-0150)","EPI-07,Prioridad-Media,Sprint-5",Sprint 5,3,17
+[HU-022] Generación y envío automático de alertas por ausentismo reiterado,"**Iniciativa:** INI-03 | **Épica:** EPI-08
+
+### Historia de Usuario
+- **Como:** Coordinador / Sistema
+- **Quiero:** Enviar notificación automática ante 3 ausencias consecutivas
+- **Para:** Prevenir deserción escolar.
+
+### Criterios de Aceptación
+- [ ] Genera alerta roja interna y aviso al acudiente.
+- [ ] Muestra fechas de ausencia en portal móvil.
+- [ ] Permite registrar seguimiento realizado.
+
+### Tareas y Subtareas
+- [ ] **TA-064 (Backend - 9h):** Cron jobs evaluación ausentismo (SUB-0163 a SUB-0165)
+- [ ] **TA-065 (Frontend - 7h):** Panel control alertas tempranas (SUB-0166 a SUB-0167)
+- [ ] **TA-066 (QA - 5h):** Simulación 3 faltas consecutivas (SUB-0168 a SUB-0169)","EPI-08,Prioridad-Alta,Sprint-5",Sprint 5,5,21
+[HU-023] Alertas de bajo rendimiento académico crítico por periodo,"**Iniciativa:** INI-03 | **Épica:** EPI-08
+
+### Historia de Usuario
+- **Como:** Docente / Coordinador
+- **Quiero:** Recibir alertas cuando el promedio parcial caiga en rango reprobatorio
+- **Para:** Convocar a nivelaciones a tiempo.
+
+### Criterios de Aceptación
+- [ ] Marca alerta en perfil del estudiante.
+- [ ] Genera reporte semanal de alumnos en riesgo.
+- [ ] Muestra advertencias en portal móvil.
+
+### Tareas y Subtareas
+- [ ] **TA-067 (Backend - 8h):** Monitoreo promedios críticos (SUB-0170 a SUB-0172)
+- [ ] **TA-068 (Frontend - 7h):** Insignias riesgo académico (SUB-0173 a SUB-0174)
+- [ ] **TA-069 (QA - 5h):** Validación umbrales reprobatorios (SUB-0175 a SUB-0176)","EPI-08,Prioridad-Alta,Sprint-5",Sprint 5,5,20
+[HU-024] Centro de notificaciones y mensajería interna institucional,"**Iniciativa:** INI-03 | **Épica:** EPI-08
+
+### Historia de Usuario
+- **Como:** Docente / Acudiente / Coordinador
+- **Quiero:** Enviar y recibir comunicados internos con trazabilidad
+- **Para:** Mantener comunicación segura escuela-hogar.
+
+### Criterios de Aceptación
+- [ ] Envío masivo por curso.
+- [ ] Registra fecha y hora de lectura.
+- [ ] Filtra comunicados vs alertas.
+
+### Tareas y Subtareas
+- [ ] **TA-070 (Backend - 9h):** Arquitectura mensajería interna (SUB-0177 a SUB-0179)
+- [ ] **TA-071 (Frontend - 8h):** Bandeja de entrada y badges (SUB-0180 a SUB-0181)
+- [ ] **TA-072 (QA - 6h):** Pruebas entrega masiva (SUB-0182 a SUB-0183)","EPI-08,Prioridad-Media,Sprint-5",Sprint 5,8,23
+[HU-025] Cuadro de mando directivo con indicadores clave institucionales,"**Iniciativa:** INI-03 | **Épica:** EPI-09
+
+### Historia de Usuario
+- **Como:** Rector / Coordinador
+- **Quiero:** Visualizar dashboard con gráficos de matrícula, reprobación y asistencia
+- **Para:** Orientar la gestión directiva.
+
+### Criterios de Aceptación
+- [ ] Tarjetas resumen de matriculados y asistencia global.
+- [ ] Filtros dinámicos por periodo.
+- [ ] Exporta indicadores a PDF/Excel.
+
+### Tareas y Subtareas
+- [ ] **TA-073 (Backend - 9h):** Agregación estadística institucional (SUB-0184 a SUB-0186)
+- [ ] **TA-074 (Frontend - 8h):** Gráficos Chart.js/Recharts (SUB-0187 a SUB-0188)
+- [ ] **TA-075 (QA - 5h):** Validación veracidad cálculos (SUB-0189 a SUB-0190)","EPI-09,Prioridad-Alta,Sprint-6",Sprint 6,5,22
+[HU-026] Generación de reportes estadísticos de deserción y reprobación,"**Iniciativa:** INI-03 | **Épica:** EPI-09
+
+### Historia de Usuario
+- **Como:** Orientador / Coordinador
+- **Quiero:** Consultar reportes analíticos de riesgo de deserción y materias críticas
+- **Para:** Diseñar planes de mejoramiento.
+
+### Criterios de Aceptación
+- [ ] Identifica materias con mayor reprobación.
+- [ ] Calcula índice de riesgo ponderado.
+- [ ] Exporta datos en formato CSV.
+
+### Tareas y Subtareas
+- [ ] **TA-076 (Backend - 8h):** Algoritmos riesgo deserción (SUB-0191 a SUB-0193)
+- [ ] **TA-077 (Frontend - 7h):** Tablas calor y exportación CSV (SUB-0194 a SUB-0195)
+- [ ] **TA-078 (QA - 5h):** Validación criterios riesgo (SUB-0196 a SUB-0197)","EPI-09,Prioridad-Media,Sprint-6",Sprint 6,5,20
+[HU-027] Auditoría y trazabilidad de cambios en registros académicos,"**Iniciativa:** INI-03 | **Épica:** EPI-09
+
+### Historia de Usuario
+- **Como:** Administrador / Rector
+- **Quiero:** Consultar bitácora (logs) de modificaciones en notas y matrículas
+- **Para:** Garantizar transparencia y seguridad.
+
+### Criterios de Aceptación
+- [ ] Registra usuario, fecha, nota anterior y nueva.
+- [ ] Filtra acciones por rango de fechas.
+- [ ] Tabla inalterable incluso para administradores.
+
+### Tareas y Subtareas
+- [ ] **TA-079 (Backend - 10h):** Middleware auditoría y tabla logs (SUB-0198 a SUB-0200)
+- [ ] **TA-080 (Frontend - 8h):** Interfaz bitácora y comparador (SUB-0201 a SUB-0202)
+- [ ] **TA-081 (QA - 7h):** Pruebas seguridad e integración final (SUB-0203 a SUB-0204)","EPI-09,Prioridad-Media,Sprint-6",Sprint 6,8,25
